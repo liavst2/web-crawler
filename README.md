@@ -1,5 +1,5 @@
 # Web Crawler
-Implementing a Web Crawler
+Implementing a Web Crawler.
 
 ### Deployment
 
