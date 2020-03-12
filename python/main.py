@@ -5,9 +5,13 @@ import os
 import sys
 
 def main(url):
-  crawler = Crawler(url)
-  crawler.start()
-  crawler.join()
+  try:
+    crawler = Crawler(url)
+    crawler.start()
+    crawler.join()
+  except KeyboardInterrupt:
+    print("Crawler is stopping gracefully...")
+    sys.exit(0)
 
 if __name__ == "__main__":
   try:
