@@ -1,14 +1,16 @@
 
 from pymongo import MongoClient
+import os
 
 class MongoStorage:
   
   def __init__(self):
-    self.client = MongoClient("mongodb://localhost:27017/")
-    self.db = self.client.crawler
+    address, port = os.environ["DB_ADDRESS"], int(os.environ["DB_PORT"])
+    self.client = MongoClient(address, port)
+    self.db = self.client["crawler"]
 
   def insert_one(self, doc):
-    self.db.pastes.insert_one(doc)
+    self.db["pastes"].insert_one(doc)
 
   def insert_many(self, docs):
-    self.db.pastes.insert_many(docs)
+    self.db["pastes"].insert_many(docs)

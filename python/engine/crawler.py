@@ -12,13 +12,12 @@ class Crawler(Process):
   def __init__(self, url):
     super().__init__()
     self.crawl_url = requests.get(url).content
-    self.timeout = 2 # sample the site every 10 seconds
+    self.timeout = 10 # sample the site every 10 seconds
     self.storage = MongoStorage()
     self.init()
 
   def init(self):
     Timer(self.timeout, self.crawel).start()
-
 
   def crawel(self):
     soup = BeautifulSoup(self.crawl_url, "html.parser")
@@ -28,5 +27,6 @@ class Crawler(Process):
       userTag = paste.find("span").text.split("|")
       user = "Unknown" if len(userTag) == 1 else userTag[0]
       self.storage.insert_one(Paste(user, title).__dict__)
+    print("New specimens were saved successfully")
     Timer(self.timeout, self.crawel).start()
 

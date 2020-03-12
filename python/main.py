@@ -14,9 +14,5 @@ def main(url):
     sys.exit(0)
 
 if __name__ == "__main__":
-  try:
-    url = os.environ["URL"]
-    main(url)
-  except KeyError:
-    print("Please set the environment variable URL")
-    sys.exit(1)
+  url = os.environ["BASE_URL"]
+  main(url)

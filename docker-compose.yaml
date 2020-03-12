@@ -1,0 +1,20 @@
+
+version: "3"
+
+services:
+  crawler:
+    build: .
+    container_name: crawler-python
+    environment:
+      - BASE_URL=https://pastebin.com
+      - DB_ADDRESS=mongo
+      - DB_PORT=27017
+    depends_on: 
+      - mongo
+    links: 
+      - mongo
+  mongo:
+    image: mongo
+    container_name: crawler-mongo
+    ports:
+      - '27017:27017'
