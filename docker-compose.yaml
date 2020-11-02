@@ -6,7 +6,10 @@ services:
     build: .
     container_name: crawler-python
     environment:
-      - BASE_URL=https://pastebin.com
+      - PYTHONUNBUFFERED=1
+      - SAMPLE_INTERVAL=120     # Every 2 minutes
+      - ANALYZER_INTERVAL=60    # DB recording every 30 seconds
+      - ANALYZER_BATCH_SIZE=5   # 5 pastes per cycle
       - DB_ADDRESS=mongo
       - DB_PORT=27017
     depends_on: 

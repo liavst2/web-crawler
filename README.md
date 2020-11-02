@@ -1,21 +1,18 @@
-# Web Crawler
+# Web Crawler - Intsights excercise
 Implementing a Web Crawler.
 
 ### Deployment
 
-The crawler is crawling Pastebin website.
-
-Every 10 seconds the crawler engine collects the new pastes done in the website, and saves their details in mongoDB.
-
-The deployment of the system is done using docker-compose:
-
-```sh
-docker-compose up --build
-```
+1. Extract the tar file
+2. cd into the extracted directory
+3. run:
+        ```
+        docker-compose up
+        ```
 
 ### MongoDB
 
-You can examine the data saved in the mongo instance using the following steps:
+You can view the data saved in the mongo instance using the following steps:
 
 1. Run the following command:
 
@@ -23,10 +20,10 @@ You can examine the data saved in the mongo instance using the following steps:
 docker exec -it crawler-mongo /bin/bash
 ```
 
-2. Once your inside the container, run the following:
+2. Once your inside the container, run the following steps:
 
 ```sh
-mongo # To connect to the running mongo instance CLI
+mongo
 use crawler
 db.pastes.find().pretty()
 ```
