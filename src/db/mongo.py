@@ -8,11 +8,11 @@ class MongoStorage:
     def __init__(self):
         address = os.environ["DB_ADDRESS"]
         port = int(os.environ["DB_PORT"])
-        self.client = MongoClient(address, port)
-        self.db = self.client["crawler"]
+        self._client = MongoClient(address, port)
+        self._db = self._client["crawler"]
 
     def insert_one(self, doc):
-        self.db["pastes"].insert_one(doc)
+        self._db["pastes"].insert_one(doc)
 
     def insert_many(self, docs):
-        self.db["pastes"].insert_many(docs)
+        self._db["pastes"].insert_many(docs)

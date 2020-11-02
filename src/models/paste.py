@@ -24,6 +24,6 @@ class Paste(object):
         return dict(
             author=self.author if self.author not in self._UNKNOWN_AUTHOR_FORM else self._UNKNOWN_AUTHOR_DEFAULT,
             title=self.title if self.title not in self._UNKNOWN_TITLE_FORM else self._UNKNOWN_TITLE_DEFAULT,
-            content=self.content,
+            content=self.content.rstrip(),
             date=self.date.strftime("%Y-%m-%d %H:%M:%S")
         )

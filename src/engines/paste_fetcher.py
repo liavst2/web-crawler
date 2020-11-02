@@ -14,7 +14,7 @@ class PasteFetcher(Process):
         super().__init__()
         self._queue = queue
         self._base_url = base_url
-        self._interval = int(os.environ["SAMPLE_INTERVAL"])
+        self._interval = int(os.environ["FETCH_INTERVAL"])
 
     def run(self) -> None:
         # Beginning of time - fetch all recent pastes first
