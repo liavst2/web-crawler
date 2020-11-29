@@ -1,5 +1,5 @@
-# Web Crawler - Intsights excercise
-Implementing a Web Crawler.
+# Web Crawler
+Implementing a Web Crawler for pastebin website.
 
 ### Deployment
 
